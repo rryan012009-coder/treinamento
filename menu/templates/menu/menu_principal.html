@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Principal</title>
+  <style>
+    body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #f4f4f4;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #007bff;
+      padding: 10px 20px;
+    }
+    .navbar img {
+      height: 50px;
+}
+
+    .navbar-title {
+      color: white;
+      font-size: 24px;
+      margin-left: 20px;
+    }
+    .menu-container {
+      width: 300px;
+      margin: 80px auto 0; /* margem maior no topo paraseparar da navbar */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .menu-item {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+    }
+
+    .menu-item:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-title">Kbz system</div>
+  </div>
+<div class="menu-container">
+  <a href="{% url 'lista_clientes' %}" class="menu-item">Cadastro de Clientes</a>
+  <a href="{% url 'lista_produtos' %}" class="menu-item">Cadastro de Produtos</a>
+  <a href="{% url 'cadastrar_usuario' %}" class="menu-item">Cadastro de Usuários</a>
+  <a href="{% url 'lista_vendas' %}" class="menu-item">Vendas</a>
+  <a href="{% url 'relatorio_vendas' %}" class="menu-item">Relatório</a>
+
+
+  <form action="{% url 'logout' %}" method="post" style="margin: 0; padding: 0;">
+    {% csrf_token %}
+    <button type="submit" class="menu-item">Sair</button>
+    
+  </form>
+
+</div>
+</body>
+</html>
